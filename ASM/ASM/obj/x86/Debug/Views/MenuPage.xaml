@@ -1,0 +1,78 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="ASM.Views.MenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ASM.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    RequestedTheme="Dark">
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger x:ConnectionId='2'                                                             />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="NavView.PaneDisplayMode" Value="Top"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <NavigationView x:ConnectionId='3' x:Name="NavView"
+                                                     
+                    IsSettingsVisible="False"
+                                           
+                                                          IsPaneOpen="False">
+            <NavigationView.Background>
+                <ImageBrush ImageSource="/Assets/4452318-music-wallpapers.jpg"/>
+            </NavigationView.Background>
+
+            <NavigationView.MenuItems>
+                <NavigationViewItem x:ConnectionId='4' Content="Play List" x:Name="home" Tag="home" ToolTipService.ToolTip="PlayList">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE90B;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItemSeparator/>
+                <NavigationViewItemHeader Content="Main pages"/>
+                <NavigationViewItem x:ConnectionId='5' Icon="Audio" Content="My Song" Tag="playList" x:Name="music" ToolTipService.ToolTip="MySong"/>
+                <NavigationViewItem x:ConnectionId='6' Icon="Add" Content="Add Song" Tag="add" x:Name="AddSong" ToolTipService.ToolTip="Add Song"/>
+                <NavigationViewItem x:ConnectionId='7' Icon="Addfriend" Content="Register" Tag="video" x:Name="game" ToolTipService.ToolTip="Register"/>
+            </NavigationView.MenuItems>
+
+            <NavigationView.AutoSuggestBox>
+                <AutoSuggestBox x:ConnectionId='8' x:Name="ASB" QueryIcon="Find"/>
+            </NavigationView.AutoSuggestBox>
+
+            <NavigationView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Margin="24,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}"
+                           FontSize="28"
+                           VerticalAlignment="Center"
+                           Text="Welcome To MusicBox" Foreground="White"/>
+                        <CommandBar Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            DefaultLabelPosition="Right"
+                            Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+                        </CommandBar>
+                    </Grid>
+                </DataTemplate>
+            </NavigationView.HeaderTemplate>
+
+            <Frame x:ConnectionId='10' x:Name="ContentFrame" Margin="20"/>
+        </NavigationView>
+    </Grid>
+</Page>
+
